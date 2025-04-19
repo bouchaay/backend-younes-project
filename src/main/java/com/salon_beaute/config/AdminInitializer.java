@@ -13,7 +13,7 @@ public class AdminInitializer {
     @Bean
     public CommandLineRunner initAdmin(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         return args -> {
-            String adminEmail = "admin@salon.com";
+            String adminEmail = "admin2@salon.com";
 
             // Vérifier si l'admin existe déjà
             if (userRepository.findByEmail(adminEmail).isEmpty()) {
@@ -23,7 +23,7 @@ public class AdminInitializer {
                 admin.setRole("admin");
                 admin.setName("admin");
                 admin.setStatus("actif");
-                admin.setPhone("0000000000");
+                admin.setPhone("0123456789");
 
                 userRepository.save(admin);
                 System.out.println("✅ Admin créé avec succès !");

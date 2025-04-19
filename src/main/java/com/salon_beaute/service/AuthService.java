@@ -51,8 +51,8 @@ public class AuthService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new RuntimeException("Mot de passe incorrect");
+        if (!password.equals(user.getPhone())) {
+            throw new RuntimeException("Numero de telephone incorrect");
         }
 
         if (user.getStatus().equals("bloqué")) {
